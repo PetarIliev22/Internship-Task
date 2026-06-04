@@ -1,77 +1,270 @@
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
+@keyframes ZoomIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    width: 100%;
+  }
+  50% {
+    width: 60%;
+  }
+}
+
+@font-face {
+    font-family: 'Clash Display';
+    src: url('../fonts/Fonts/WEB/fonts/ClashDisplay-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html{
-    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
 }
 
 body{
+    font-family: 'Clash Display', sans-serif;
     margin: 0;
     padding: 0;
 }
 
-header{
-    animation: fadeIn 0.5s ease-in-out;
+/* TOP BAR */
+.top-bar{
+    background-color: #242424;
+    border-bottom: 1px solid #e0e0e0;
+    animation: slideDown 0.6s ease-out;
 }
 
-/* Actions in header */
-.actions input{
-    outline: none;
-    box-shadow: none !important;
-    border: 1px solid #ccc;
+.top-bar .contact-info a{
+    font-size: 0.9rem;
+    color: #cccccc;
 }
 
-.actions input:focus{
-    border: 1px solid #666666;
+.top-bar .social-icons a{
+    color: #cccccc;
+    transition: color 0.3s ease;
+}   
+
+.top-bar .social-icons a:hover{
+    color: #ffffff;
+    transition: color 0.3s ease;
 }
 
-.actions input::placeholder{
-    color: #8d8d8d;
+/* END TOP BAR */
+
+/* HEADER */
+.navbar{
+    background-color: #fdfdfd;
+    animation: fadeIn 0.9s ease-in-out;
 }
 
-.actions a{
-    text-decoration: none;
+.navbar .actions a{
     color: #8d8d8d;
     transition: background-color 0.3s ease;
 }
 
-.actions a:hover{
-    color: #000000;
+.navbar .actions a:hover{
+    color: #2e2e2e;
     transition: color 0.3s ease;
 }
 
-.actions a:nth-child(3):hover{
-    text-decoration: none;
+.navbar .actions a:nth-child(2):hover{
     color: #e20e0e;
     transition: color 0.3s ease;
 }
-.navbar-toggler{
-    border: none;
-    outline: none;
-    box-shadow: none !important;
-}
-/* END Actions */
 
-/* Navigation */
-.nav{
-    background-color: #303030;
-    border-bottom: 1px solid #ccc;
-    animation: fadeIn 0.5s ease-in-out;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+.navbar .nav-link{
     letter-spacing: 1px;
     text-transform: uppercase;
+    color: #6e6e6e;
+    font-size: 0.7rem;
 }
 
-.nav-link{
-    color: #d8d8d8;
-    text-decoration: none;
+.navbar .nav-link:hover{
+    color: #1d1d1d;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #222222;
+    animation: heartbeat 0.8s ease-in-out;
 }
 
-.nav-link:hover{
-    border-bottom: 2px solid #fff;
-    padding-bottom: 1px;
-    color: #ffffff;
+.navbar .navbar-toggler{
+    border: none;
+    box-shadow: none;
 }
-/* END Navigation */
+.nav-icon-5{
+  width: 25px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+.nav-icon-5 span{
+  background-color:#5e5e5e;
+  position: absolute;
+  border-radius: 2px;
+  transition: .3s cubic-bezier(.8, .5, .2, 1.4);
+  width:100%;
+  height: 3px;
+  transition-duration: 500ms
+}
+.nav-icon-5 span:nth-child(1){
+  top:0px;
+  left: 0px;
+}
+.nav-icon-5 span:nth-child(2){
+  top:9px;
+  left: 0px;
+  opacity:1;
+}
+.nav-icon-5 span:nth-child(3){
+  bottom:0px;
+  left: 0px;
+}
+
+.nav-icon-5.open span:nth-child(1){
+  transform: rotate(45deg);
+  top: 13px;
+}
+.nav-icon-5.open span:nth-child(2){
+  opacity:0;
+}
+.nav-icon-5.open span:nth-child(3){
+  transform: rotate(-45deg);
+  top: 13px;
+}
+/* END HEADER */
+
+/* HOME SECTION */
+.home-section{
+    border-bottom: 15px solid #242424;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.carousel-item img{
+    height: 500px;
+    object-fit: cover;
+    object-position: 50%;
+    filter: brightness(0.45);
+}
+
+.carousel-inner>.carousel-item {
+    -webkit-transition: -webkit-transform 1.2s ease-in-out !important;
+    -o-transition: -o-transform 1.2s ease-in-out !important;
+    transition: transform 1.5s ease-in-out !important;
+}
+
+.carousel-caption{
+    animation: ZoomIn 1.7s ease-in-out;
+}
+
+.carousel-caption h1{
+    font-size: 3.7rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.carousel-caption p{
+    font-size: 1.2rem;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    margin-bottom: 20px;
+}
+
+.carousel-caption .btn{
+    width: 150px;
+    background-color: #fff;
+    color: #333;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.carousel-caption .btn:hover{
+    background-color: #333;
+    color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* END HOME SECTION *
+
+/* Brand Infinity Scroll */
+.InfinityScroll {
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    animation: fadeIn 1s ease-in;
+}
+
+.Infinity-branding {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.4s linear;
+}
+
+.branding-img {
+    height: 80px;
+    flex: 1;
+    flex: 0 0 250px;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 2.5px solid #8282823d;
+    filter: opacity(0.8);
+    animation: FadeIn 0.3s ease-out;
+}
+
+.branding-img:last-child {
+    border-right: none;
+}
+
+.branding-img img {
+    max-width: 45%;
+    max-height: 60px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.arrow {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    color: #828282;
+    background: rgb(255 255 255);
+    box-shadow: -1px 0px 20px 20px #ffffff;
+    border: none;
+    font-size: 20px;
+    height: 100%;
+    cursor: pointer;
+    padding: 30px;
+    z-index: 10;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+/* END Brand Infinity Scroll */
+
+/* PRODUCTS SECTION */
+.products-section .container{
+    padding: 30px;
+    animation: fadeIn 1s ease-in;
+}
+/* END PRODUCTS SECTION */
