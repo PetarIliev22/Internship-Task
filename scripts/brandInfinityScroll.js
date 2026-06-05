@@ -27,7 +27,7 @@ if (allComp.every((comp) => comp)) {
         </div>`;
     });
 
-    let baseSpeed = 0.8;
+    let baseSpeed = 0.5;
     let speed = baseSpeed;
     let position = 0;
 

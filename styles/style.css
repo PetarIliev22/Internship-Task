@@ -267,4 +267,23 @@ body{
     padding: 30px;
     animation: fadeIn 1s ease-in;
 }
+
+.product-cards{
+    animation: fadeIn 1.7s ease-in-out;
+}
+.product-cards .card {
+    animation: ZoomIn 0.3s ease-in-out;
+}
+
+.product-cards .card img{
+    height: 300px;
+    object-fit: cover;
+    object-position: 50%;
+}
+
+.product-cards .card:hover{
+    transform: scale(1.02);
+    transition: transform 0.3s ease-in-out;
+}
+
 /* END PRODUCTS SECTION */

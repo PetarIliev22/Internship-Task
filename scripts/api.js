@@ -20,13 +20,12 @@ async function getData() {
 }
 
 export async function cacheData() {
-    const cached = JSON.parse(sessionStorage.getItem("data"));
+    const cached = sessionStorage.getItem("data")
 
     if (cached) {
-        return cached;
+        return JSON.parse(cached)
     } else {
         return await getData();
     }
 }
 
-cacheData() 

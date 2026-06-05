@@ -164,26 +164,39 @@
         </aside>
         <!-- END Brand Scroll Section -->
 
+        <!-- Products Section -->
         <section class="products-section">
             <article class="container mt-5">
+
                 <div class="row">
-                    <h2 class="fw-bold text-center">Featured Products</h2>
-                    <div class="filter-section col-12 col-md-3">
-                        <select class="form-select m-1" aria-label="Default select example">
-                            <option selected>Sort by</option>
-                            <option value="1">Price: Low to High</option>
-                            <option value="2">Price: High to Low</option>
-                            <option value="3">Newest</option>
-                            <option value="4">Oldest</option>
+                    <h2 class="fw-bold text-center mb-3">Featured Products</h2>
+                    <div class="filter-section d-flex flex-md-row flex-column col-12 col-md-6 mb-3 gap-3" id="filter-section">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-funnel me-2"></i>
+                            <span class="fw-bold">Filters</span>
+                        </div>
+
+                        <select class="form-select form-select-sm w-auto" id="sort-select">
+                            <option selected value="">Sort by</option>
+                            <option value="high">Price: High → Low</option>
+                            <option value="low">Price: Low → High</option>
+                        </select>
+
+                        <select class="form-select form-select-sm w-auto" id="category-select">
+                            <option selected value="">Category</option>
+                        </select>
+
+                        <select class="form-select form-select-sm w-auto" id="brand-select">
+                            <option selected value="">Brand</option>
                         </select>
                     </div>
 
-                    <div class="product-cards text-center text-md-start col-12 col-md-9" id="product-cards"></div>
+
+                    <div class="product-cards text-center text-center col-12" id="product-cards"></div>
                 </div>
             </article>
         </section>
-
-
+        <!-- END Products Section -->
 
     </main>
 
