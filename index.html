@@ -41,30 +41,48 @@
                 </div>
             </button>
 
+            
             <div class="collapse navbar-collapse" id="navbarContent">
-
-                <ul class="navbar-nav mx-auto gap-3 text-center">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Clothes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contacts</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                </ul>
-
-                <div class="actions d-flex gap-3 align-items-center justify-content-center">
-                    <a href="#"><i class="bi bi-cart3"></i></a>
-                    <a href="#"><i class="bi bi-heart-fill"></i></a>
-                    <a href="#"><i class="bi bi-person"></i></a>
-                </div>
                 
+                <ul class="navbar-nav mx-auto gap-3 text-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products-section">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contacts</a></li>
+                </ul>
+                
+                <div class="actions d-flex gap-3 align-items-center justify-content-center mt-3 mt-md-0">
+                    
+                    <a data-toggle="modal" data-bs-toggle="modal" data-bs-target="#exampleModal" id="favorites"><i class="bi bi-heart-fill"></i></a>
+                    <a href="#"><i class="bi bi-person-fill"></i></a>
+                
+                </div>
             </div>
 
         </div>
     </header>
     <!-- END Header -->
 
-    <main>
+    <main> 
+        <!-- Modal Favorites -->
+        <section class="modal-favorites">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Favorites</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body" id="favorites-list"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END Modal Favorites -->
+
         <!-- HOME SECTION -->
-        <section class="home-section">
+        <section class="home-section" id="home">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
 
                 <div class="carousel-indicators">
@@ -165,8 +183,8 @@
         <!-- END Brand Scroll Section -->
 
         <!-- Products Section -->
-        <section class="products-section">
-            <article class="container mt-5">
+        <section class="products-section" id="products-section">
+            <div class="container pt-5">
 
                 <div class="row">
                     <h2 class="fw-bold text-center mb-3">Featured Products</h2>
@@ -192,9 +210,9 @@
                     </div>
 
 
-                    <div class="product-cards text-center text-center col-12" id="product-cards"></div>
+                    <article class="product-cards text-center text-center col-12" id="product-cards"></article>
                 </div>
-            </article>
+            </div>
         </section>
         <!-- END Products Section -->
 

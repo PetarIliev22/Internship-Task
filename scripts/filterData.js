@@ -1,90 +1,59 @@
 import { cacheData } from "./API.js";
-import { renderProducts } from "./products.js";
+import { renderProducts, restoreFavorites } from "./products.js";
 
 const data = await cacheData();
 
-let state = {
-    brand: "",
-    category: "",
-    sort: ""
-};
+const brandSelect = document.querySelector("#brand-select");
+const categorySelect = document.querySelector("#category-select");
+const sortSelect = document.querySelector("#sort-select");
 
-function brandSelection() {
+function fillFilters() {
+
     const brands = [...new Set(data.map(item => item.brand))];
-    const brandSelect = document.querySelector("#brand-select");
-
-    brands.forEach(el => {
+    brands.forEach(b => {
         brandSelect.innerHTML += `
-            <option value="${el}">${el}</option>
+            <option value="${b}">
+                ${b.charAt(0).toUpperCase() + b.split("-").join(" ").slice(1)}
+            </option>
         `;
     });
 
-    brandSelect.addEventListener("change", () => {
-        const brand = brandSelect.value;
-        state.brand = brand;
-        applyFilters();
-    });
-
-}
-brandSelection();
-
-function categorySelection() {
     const categories = [...new Set(data.map(item => item.category))];
-    const categorySelect = document.querySelector("#category-select");
-
-    categories.forEach(el => {
+    categories.forEach(c => {
         categorySelect.innerHTML += `
-            <option value="${el}">${el.charAt(0).toUpperCase() + el.split("-").join(" ").slice(1)}</option>
+            <option value="${c}">
+                ${c.charAt(0).toUpperCase() + c.split("-").join(" ").slice(1)}
+            </option>
         `;
     });
-
-    categorySelect.addEventListener("change", () => {
-        const category = categorySelect.value;
-        state.category = category;
-        applyFilters();
-    });
-
 }
-categorySelection();
-
-function sortByPrice(){
-    const sortSelect = document.querySelector("#sort-select");
-
-    sortSelect.addEventListener("change", () => {
-        if (sortSelect.value === "high") {
-            state.sort = "high";
-        } else if (sortSelect.value === "low") {
-            state.sort = "low";
-        } else {
-            state.sort = "";
-        }
-
-        applyFilters();
-    });
-}
-sortByPrice();
 
 function applyFilters() {
-    let filteredData = [...data];
+    let result = [...data];
 
-    if (state.brand) {
-        filteredData = filteredData.filter(item => item.brand === state.brand);
+    const brand = brandSelect.value;
+    const category = categorySelect.value;
+    const sort = sortSelect.value;
+
+    if (brand) {
+        result = result.filter(i => i.brand === brand);
+    }else if (category) {
+        result = result.filter(i => i.category === category);
     }
 
-    if (state.category) {
-        filteredData = filteredData.filter(item => item.category === state.category);
+    if (sort === "low") {
+        result.sort((a, b) => a.price - b.price);
+    }else if (sort === "high") {
+        result.sort((a, b) => b.price - a.price);
     }
 
-    if (state.sort === "low") {
-        filteredData.sort((a, b) => a.price - b.price);
-    }
-
-    if (state.sort === "high") {
-        filteredData.sort((a, b) => b.price - a.price);
-    }
-
-    renderProducts(filteredData);
+    renderProducts(result);
+    restoreFavorites();
 }
 
+brandSelect.addEventListener("change", applyFilters);
+categorySelect.addEventListener("change", applyFilters);
+sortSelect.addEventListener("change", applyFilters);
 
+fillFilters();
 applyFilters();
