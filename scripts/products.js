@@ -5,14 +5,16 @@ export function renderProducts(list) {
 
     list.forEach((item) => {
         container.innerHTML += `
-            <div class="card d-inline-block m-1" data-id="${item.id}">
-                <img src="${item.images[0]}" data-first="${item.images[0]}" data-second="${item.images[1]}" class="card-img-top" alt="${item.title}">
-                <a class="heart-icon"><i class="bi bi-heart"></i></a>
+            <div class="card d-inline-block m-1 product-card" data-id="${item.id}">
+                <div class="position-relative">
+                    <img src="${item.images[0]}" data-first="${item.images[0]}" data-second="${item.images[1]}" class="card-img-top" alt="${item.title}">
+                    <a class="heart-icon"><i class="bi bi-heart"></i></a>
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">${item.brand}</h5>
+                    <h6 class="card-title text-uppercase text-muted small">${item.brand}</h6>
                     <p class="card-text">${item.title}</p>
-                    <p class="card-price">${item.price} €</p>
-                    <button class="btn btn-dark px-5">View</button>
+                    <p class="card-price fw-bold">${item.price} €</p>
+                    <button class="btn btn-dark px-5 w-100">View</button>
                 </div>
             </div>
         `;
