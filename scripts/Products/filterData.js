@@ -1,4 +1,4 @@
-import { cacheData } from "./API.js";
+import { cacheData } from "../API.js";
 import { renderProducts, restoreFavorites } from "./products.js";
 
 const data = await cacheData();

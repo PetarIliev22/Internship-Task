@@ -1,6 +1,7 @@
 import "./API.js";
-import "./brandInfinityScroll.js";
-import "./hamburgerAnimation.js";
-import "./products.js";
-import "./filterData.js";
-import "./favoriteList.js";
+import "./BrandInfinityScroll/brandInfinityScroll.js";
+import "./HamburgerBtn/hamburgerAnimation.js";
+import "./Products/selectedProduct.js";
+import "./Products/selectedProductDetails.js";
+import "./Products/filterData.js";
+import "./Products/favoriteList.js";

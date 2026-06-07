@@ -13,7 +13,7 @@ export function renderProducts(list) {
                 <div class="card-body">
                     <h6 class="card-title text-uppercase text-muted small">${item.brand}</h6>
                     <p class="card-text">${item.title}</p>
-                    <p class="card-price fw-bold">${item.price} €</p>
+                    <p class="card-price fw-bold">${item.price.toFixed(2)} €</p>
                     <button class="btn btn-dark px-5 w-100">View</button>
                 </div>
             </div>
