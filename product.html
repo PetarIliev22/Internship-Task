@@ -3,35 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/productDetails.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
+    <title>Product Details</title>
 </head>
+
 <body>
-    
-    <div class="container d-flex flex-row justify-content-center">
-        <a href="index.html" class="back-btn">← Back</a>
 
-        <div class="product-wrapper row g-4">
-            <div class="col-md-6">
-                <img id="product-image" class="product-image" src="" alt="">
+    <div class="container py-4 mt-3" style="max-width: 960px;">
+        <div class="row g-4 bg-white border rounded-3 shadow-sm p-3">
+            <a href="index.html" class="d-inline-flex align-items-center gap-2 text-decoration-none small text-muted mt-0"><i class="bi bi-arrow-left"></i> Back</a>
+
+            <div class="col-md-5">
+                <img id="product-image" class="w-100 rounded-3 border mb-2" style="object-fit:cover; height:350px;">
+                <div id="product-thumbnails" class="d-flex gap-2 overflow-auto"></div>
             </div>
 
-            <div class="col-md-6">
-                <div id="product-brand" class="brand"></div>
-                <div id="product-title" class="title"></div>
-                <div id="product-price" class="price"></div>
-                <p id="product-description" class="desc"></p>
+            <div class="col-md-7 d-flex flex-column justify-content-between">
 
-                <button class="btn-buy">Add to Cart</button>
+                <div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span id="product-category" class="badge bg-secondary text-uppercase">Category</span>
+                        <span class="badge bg-success">In Stock</span>
+                    </div>
+
+                    <div id="product-brand" class="text-muted small fw-bold text-uppercase"></div>
+                    <h2 id="product-title" class="fw-bold"></h2>
+
+                    <div class="mb-2">
+                        <span id="product-price" class="fw-bold text-primary fs-4"></span>
+                        <span id="product-old-price" class="text-muted text-decoration-line-through small ms-2"></span>
+                    </div>
+
+                    <p id="product-description" class="text-secondary small"></p>
+
+                    <div class="accordion mb-3" id="specs">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed py-2" data-bs-toggle="collapse" data-bs-target="#s1">Specs</button>
+                            </h2>
+                            <div id="s1" class="accordion-collapse collapse">
+                                <div class="accordion-body p-2">
+                                    <table class="table table-sm mb-0">
+                                        <tbody id="specs-table-body"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="d-flex gap-2">
+                    <input type="number" class="form-control text-center" value="1" min="1" max="10" style="max-width:80px">
+                    <button class="btn btn-dark flex-grow-1"><i class="bi bi-cart-plus"></i> Add to Cart</button>
+                </div>
+
             </div>
-
         </div>
     </div>
 
 <script type="module" src="./scripts/Products/selectedProductDetails.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

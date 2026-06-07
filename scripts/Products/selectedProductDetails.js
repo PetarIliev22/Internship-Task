@@ -11,9 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const price = document.getElementById("product-price");
     const image = document.getElementById("product-image");
     const desc = document.getElementById("product-description");
+    const category = document.getElementById("product-category");
 
     if (title) title.textContent = product.title;
     if (brand) brand.textContent = product.brand;
+    if (category) category.textContent = product.category;
     if (price) price.textContent = Number(product.price).toFixed(2);
     if (image) image.src = product.images[0];
     if (desc) desc.textContent = product.description;
