@@ -1,15 +1,17 @@
 import { cacheData } from "../API.js";
 import { renderProducts, restoreFavorites } from "./products.js";
 
-const data = await cacheData();
-
 const brandSelect = document.querySelector("#brand-select");
 const categorySelect = document.querySelector("#category-select");
 const sortSelect = document.querySelector("#sort-select");
 
+let data = [];
 function fillFilters() {
+    if (!brandSelect || !categorySelect || !sortSelect) return;
 
     const brands = [...new Set(data.map(item => item.brand))];
+    const categories = [...new Set(data.map(item => item.category))];
+
     brands.forEach(b => {
         brandSelect.innerHTML += `
             <option value="${b}">
@@ -18,7 +20,6 @@ function fillFilters() {
         `;
     });
 
-    const categories = [...new Set(data.map(item => item.category))];
     categories.forEach(c => {
         categorySelect.innerHTML += `
             <option value="${c}">
@@ -37,7 +38,9 @@ function applyFilters() {
 
     if (brand) {
         result = result.filter(i => i.brand === brand);
-    }else if (category) {
+    }
+
+    if (category) {
         result = result.filter(i => i.category === category);
     }
 
@@ -55,5 +58,11 @@ brandSelect.addEventListener("change", applyFilters);
 categorySelect.addEventListener("change", applyFilters);
 sortSelect.addEventListener("change", applyFilters);
 
-fillFilters();
-applyFilters();
+async function init() {
+    data = (await cacheData()) || [];
+    
+    fillFilters();
+    applyFilters();
+}
+
+init();

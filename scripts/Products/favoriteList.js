@@ -50,6 +50,7 @@ function renderFavorites() {
                 ${updateTotalPrice(favorites).toFixed(2)} €
             </span>
         </div>
+        <button class="btn btn-danger w-100 mt-2">Go to checkout</button>
     `;
 
     favoritesList.appendChild(totalPrice);

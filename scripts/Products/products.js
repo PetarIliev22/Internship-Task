@@ -6,14 +6,15 @@ export function renderProducts(list) {
     list.forEach((item) => {
         container.innerHTML += `
             <div class="card d-inline-block m-1 product-card" data-id="${item.id}">
-                <div class="position-relative">
-                    <img src="${item.images[0]}" data-first="${item.images[0]}" data-second="${item.images[1]}" class="card-img-top" alt="${item.title}">
-                    <a class="heart-icon"><i class="bi bi-heart"></i></a>
-                </div>
+            <img src="../assets/background-logo.png" class="position-absolute top-0 start-0" alt="New" style="opacity: 0.08;">
+            <div class="position-relative">
+            <img src="${item.images[0]}" data-first="${item.images[0]}" data-second="${item.images[1]}" class="card-img-top" alt="${item.title}">
+            <a class="heart-icon"><i class="bi bi-heart m-1"></i></a>
+            </div>
                 <div class="card-body">
                     <h6 class="card-title text-uppercase text-muted small">${item.brand}</h6>
                     <p class="card-text">${item.title}</p>
-                    <p class="card-price fw-bold">${item.price.toFixed(2)} €</p>
+                    <p class="card-price">${item.price.toFixed(2)} €</p>
                     <button class="btn btn-dark px-5 w-100">View</button>
                 </div>
             </div>
@@ -24,10 +25,8 @@ export function renderProducts(list) {
 container.addEventListener('mouseover', (elTarget) => {
     const target = elTarget.target;
     if (target.classList.contains('card-img-top')) {
-        const first = target.dataset.first;
         const second = target.dataset.second;
-
-        target.src = second;
+        if (second) target.src = second;
         target.style.animation = 'fadeIn 0.3s ease forwards';
     }
 });
@@ -36,8 +35,7 @@ container.addEventListener('mouseout', (elTarget) => {
     const target = elTarget.target;
     if (target.classList.contains('card-img-top')) {
         const first = target.dataset.first;
-
-        target.src = first;
+        if (first) target.src = first;
         target.style.animation = 'fadeOut 0.3s ease forwards';
     }
 });
@@ -57,14 +55,14 @@ container.addEventListener('click', (elTarget) => {
 
         const product = { id, title, price, image };
 
-        const exists = favorite.find(item => item.id == id);
+        const exists = favorite.find(item => item.id === id);
 
         if (!exists) {
             favorite.push(product);
             icon.classList.remove('bi-heart');
             icon.classList.add('bi-heart-fill');
         } else {
-            favorite = favorite.filter(item => item.id != id);
+            favorite = favorite.filter(item => item.id !== id);
             icon.classList.remove('bi-heart-fill');
             icon.classList.add('bi-heart');
         }
@@ -77,10 +75,10 @@ export function restoreFavorites() {
     let favorite = JSON.parse(localStorage.getItem('favorites')) || [];
 
     document.querySelectorAll('.card').forEach(card => {
-        const id = card.dataset.id;
+        const id = Number(card.dataset.id);
         const icon = card.querySelector('.heart-icon i');
 
-        if (favorite.find(item => item.id == id)) {
+        if (favorite.find(item => Number(item.id) === Number(id))) {
             icon.classList.add('bi-heart-fill');
             icon.classList.remove('bi-heart');
         }
