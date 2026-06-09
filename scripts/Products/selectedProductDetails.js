@@ -1,12 +1,17 @@
 function ratingToStars(rating) {
     let stars = "";
     const fullStars = Math.floor(rating);
+    console.log(fullStars);
 
     for (let i = 0; i < fullStars; i++) {
         stars += `<i class="bi bi-star-fill"> </i>`;
     }
 
-    for (let i = 0; i < 5 - fullStars; i++) {
+    if(fullStars < rating) {
+        stars += `<i class="bi bi-star-half"> </i>`;
+    }
+
+    for (let i = 0; i < 4 - fullStars; i++) {
         stars += `<i class="bi bi-star"> </i>`;
     }
 
