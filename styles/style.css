@@ -425,7 +425,8 @@ body::after{
     width: 90%;
     max-width: 500px;
     animation: slideDown 0.5s ease-in-out;
-    background-color: #a30101;
+    border: none;
+    background-color: #06a301;
     color: #ffffff;
     padding: 10px;
     border-radius: 5px;

@@ -1,21 +1,18 @@
 const form = document.getElementById("contact-form");
-
 const errorMessage = document.getElementById("form-alert");
-const nameInput = document.getElementById("name");
-const emailInput = document.getElementById("email");
-const messageInput = document.getElementById("message");
 const submitBtn = document.getElementById("submitBtn");
-
-const email_regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 submitBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    
 
-    const inputs = [nameInput, emailInput, messageInput];
-    if(!inputs.every(input => input.value !== "")){
+    const nameInput = document.getElementById("name").value;
+    const emailInput = document.getElementById("email").value;
+    const messageInput = document.getElementById("message").value;
+    
+    if(nameInput === "" || emailInput === "" || messageInput === ""){
         errorMessage.textContent = "Please fill out all the fields";
-        errorMessage.classList.add("alert-danger");
+        errorMessage.style.backgroundColor = "red";
         errorMessage.classList.remove("d-none"); 
         setTimeout(() => {
             errorMessage.classList.add("d-none");
@@ -24,24 +21,37 @@ submitBtn.addEventListener("click", (e) => {
         return;
     }
 
-    if(!email_regex.test(emailInput.value)){
-        errorMessage.textContent = "Please enter a valid email address";
-        errorMessage.classList.add("alert-danger");
-        errorMessage.classList.remove("d-none"); 
-        setTimeout(() => {
-            errorMessage.classList.add("d-none");
-        }, 3000);
-
-        return;
-    }
-
-    errorMessage.textContent = "Form submitted successfully";
-    errorMessage.classList.add("alert-success");
-    errorMessage.classList.remove("d-none"); 
-
-    setTimeout(() => {
-        errorMessage.classList.add("d-none");
-    }, 3000);
+     if(!email_regex.test(emailInput)){
+            errorMessage.textContent = "Please enter a valid email";
+            errorMessage.style.backgroundColor = "red";
+            errorMessage.classList.remove("d-none"); 
+            setTimeout(() => {
+                errorMessage.classList.add("d-none");
+            }, 3000);
     
+            return;
+        }
 
+    if(nameInput && emailInput && messageInput){
+        const formData = new FormData(form);
+        formData.append("access_key", "7f7b8e00-77b6-43e0-8bae-11be4abebd24");
+
+        fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.success){
+                errorMessage.textContent = "Form submitted successfully";
+                errorMessage.style.backgroundColor = "green";
+                errorMessage.classList.remove("d-none");
+                form.reset();
+                setTimeout(() => {
+                    errorMessage.classList.add("d-none");
+                }, 3000);
+            }
+        })
+        .catch(error => console.log(error));
+    }
 });
