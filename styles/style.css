@@ -460,6 +460,12 @@ body::after{
     resize: none;
 }
 
+.input-group input::placeholder, .input-group textarea::placeholder{
+    color: #6868689d;
+    font-size: 0.8rem;
+    
+}
+
 .input-group input:hover{
     outline: none !important;
     transition: background-color 0.3s ease-in-out;
