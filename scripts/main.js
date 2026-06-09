@@ -1,3 +1,5 @@
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 import "./api.js";
 import "./BrandInfinityScroll/brandInfinityScroll.js";
 import "./HamburgerBtn/hamburgerAnimation.js";
