@@ -49,7 +49,7 @@
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about-us">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#products-section">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact-section">Contacts</a></li>
                 </ul>
                 
                 <div class="actions d-flex gap-3 align-items-center justify-content-center mt-3 mt-md-0">
@@ -103,8 +103,8 @@
                             <h1 class="fw-bold">Timeless Luxury</h1>
                             <p class="fs-5">Swiss precision. Modern design. Timeless style. Up to 30% off selected luxury watches</p>
                             <div class="d-flex gap-2 mt-2">
-                                <button class="btn btn-light px-4">Explore</button>
-                                <button class="btn btn-outline-light px-4">Deals</button>
+                                <a href="#products-section" class="btn btn-light px-4">Shop Now</a>
+                                <a href="#about-us" class="btn btn-light px-4">Learn More</a>
                             </div>
                         </div>
                     </div>
@@ -116,8 +116,8 @@
                             <h1 class="fw-bold">Precision in Every Detail</h1>
                             <p class="fs-5">Engineered for performance and elegance. Discover hand-finished Swiss craftsmanship</p>
                             <div class="d-flex gap-2 mt-2">
-                                <button class="btn btn-light px-4">Shop Now</button>
-                                <button class="btn btn-outline-light px-4">Learn More</button>
+                                <a href="#products-section" class="btn btn-light px-4">Shop Now</a>
+                                <a href="#about-us" class="btn btn-light px-4">Learn More</a>
                             </div>
                         </div>
                     </div>
@@ -129,8 +129,8 @@
                             <h1 class="fw-bold">Wear Your Status</h1>
                             <p class="fs-5">A watch that defines your presence. Luxury that speaks for itself</p>
                             <div class="d-flex gap-2 mt-2">
-                                <button class="btn btn-light px-4">Explore</button>
-                                <button class="btn btn-outline-light px-4">Collections</button>
+                                <a href="#products-section" class="btn btn-light px-4">Collections</a>
+                                <a href="#about-us" class="btn btn-light px-4">Learn More</a>
                             </div>
                         </div>
                     </div>
@@ -142,8 +142,8 @@
                             <h1 class="fw-bold">Rare & Exclusive</h1>
                             <p class="fs-5">Designed for those who value uniqueness. Limited stock available worldwide</p>
                              <div class="d-flex gap-2 mt-2">
-                                <button class="btn btn-light px-4">Buy Now</button>
-                                <button class="btn btn-outline-light px-4">View Details</button>
+                                <a href="#products-section" class="btn btn-light px-4">Shop Now</a>
+                                <a href="#about-us" class="btn btn-light px-4">Learn More</a>
                             </div>
                         </div>
                     </div>
@@ -155,8 +155,8 @@
                             <h1 class="fw-bold">Legacy of Precision</h1>
                             <p class="fs-5">Inspired by decades of Swiss watchmaking mastery. Crafted to last for generations</p>
                             <div class="d-flex gap-2 mt-2">
-                                <button class="btn btn-light px-4">Discover</button>
-                                <button class="btn btn-outline-light px-4">Explore</button>
+                                <a href="#" class="btn btn-light px-4">Discover</a>
+                                <a href="#products-section" class="btn btn-light px-4">Explore</a>
                             </div>
                         </div>
                     </div>
@@ -301,8 +301,8 @@
             </div>
             <div class="container">
                 <div class="text-center mb-5" data-aos="fade-up">
-                    <h2 class="fw-bold">Get in Touch</h2>
-                    <p class="text-muted">We usually reply within 24 hours</p>
+                    <h2 class="fw-bold">Contact Us</h2>
+                    <p class="text-muted">We're here to help you with any questions or concerns you may have.</p>
                 </div>
 
                 <div class="row align-items-center justify-content-center g-4">
@@ -315,16 +315,21 @@
 
                     <div class="right-col col-12 col-md-6" data-aos="fade-left">
                         <form class="p-4" action="https://api.web3forms.com/submit" method="POST" id="contact-form">
-                            <div class="mb-3">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your name" required>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                             </div>
 
-                            <div class="mb-3">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text " id="basic-addon2"><i class="bi bi-envelope-fill"></i></span>
                                 <input type="email" name="email" class="form-control" id="email" placeholder="Your email" required>
                             </div>
 
                             <div class="mb-3">
-                                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Write your message..." required></textarea>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-chat-fill"></i></span>
+                                    <textarea class="form-control" name="message" id="message" placeholder="Your message" aria-label="With textarea"></textarea>
+                                </div>
                             </div>
 
                             <button type="submit" id="submitBtn" name="submit" class="btn btn-dark w-100">Send Message</button>
@@ -365,7 +370,7 @@
                         <p><a href="#home" >Home</a></p>
                         <p><a href="#about-us">About</a></p>
                         <p><a href="#products-section">Products</a></p>
-                        <p><a href="#contact">Contacts</a></p>
+                        <p><a href="#contact-section">Contacts</a></p>
                     </div>
 
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4" id="contact">

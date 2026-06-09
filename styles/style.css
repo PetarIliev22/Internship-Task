@@ -223,10 +223,8 @@ body::after{
     filter: brightness(0.45);
 }
 
-.carousel-inner>.carousel-item {
-    -webkit-transition: -webkit-transform 1.2s ease-in-out !important;
-    -o-transition: -o-transform 1.2s ease-in-out !important;
-    transition: transform 1.5s ease-in-out !important;
+.carousel-item {
+    transition: transform 1.2s ease-in-out;
 }
 
 .carousel-caption{
@@ -413,6 +411,7 @@ body::after{
     background: white;
     z-index: 1;
     animation: fadeIn 0.5s ease-in-out;
+    font-size: 0.85rem;
     background-color: #ffffff;
 }
 
@@ -425,8 +424,8 @@ body::after{
     width: 90%;
     max-width: 500px;
     animation: slideDown 0.5s ease-in-out;
-    border: none;
-    background-color: #06a301;
+    background-color: #a301018e;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.233);
     color: #ffffff;
     padding: 10px;
     border-radius: 5px;
@@ -437,7 +436,34 @@ body::after{
     text-align: center;
 }
 
+.contact-section .right-col{
+    text-align: center;
+}
 
+.input-group span{
+    color: #ffffff;
+    font-size: 0.8rem;
+    background-color: #2e2e2e;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: transparent 1px solid !important;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.input-group input, .input-group textarea{
+    border: black 1px border !important;
+    box-shadow: none !important;
+    outline: none !important;
+    font-size: 0.8rem;
+    transition: background-color 0.3s ease-in-out;
+    resize: none;
+}
+
+.input-group input:hover{
+    outline: none !important;
+    transition: background-color 0.3s ease-in-out;
+}
 
 /* END CONTACT SECTION */
 
