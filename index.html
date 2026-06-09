@@ -6,6 +6,7 @@
     <meta name="author" content="Chronos">
     <meta name="keywords" content="watches, luxury watches, chronos, wrist watches, men watches, women watches">
     <meta name="description" content="Chronos - luxury Swiss-inspired wrist watches with timeless design and precision craftsmanship.">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="styles/style.css">
@@ -14,7 +15,7 @@
 </head>
 <body>
     <!-- TOP BAR -->
-    <header class="top-bar container-fluid d-flex justify-content-around align-items-center p-1">
+    <header class="top-bar container-fluid d-flex justify-content-around align-items-center p-1" data-aos="slide-down">
         <div class="contact-info d-flex flex-md-row flex-column gap-3">
             <a href="chronos@watches.com" class="text-decoration-none"><i class="bi bi-envelope-at-fill"></i> chronos@watches.com</a>
         </div>
@@ -176,7 +177,7 @@
         <!-- END HOME SECTION -->
 
         <!-- Brand Scroll Section -->
-        <section class="container-fluid InfinityScroll d-flex align-items-center">
+        <section class="container-fluid InfinityScroll d-flex align-items-center" data-aos="fade-in" data-aos-duration="1000">
             <div class="Infinity-branding" id="track"></div>
             <button class="arrow left" id="leftBtn">&#10094;</button>
             <button class="arrow right" id="rightBtn">&#10095;</button>
@@ -185,7 +186,7 @@
 
         <!-- ABOUT US SECTION -->
         <section class="container about-us p-4 p-md-5" id="about-us">
-            <div class="container">
+            <div class="container" data-aos="fade-down" data-aos-duration="1000">
 
                 <div class="row align-items-center g-4">
 
@@ -263,7 +264,7 @@
         <section class="container products-section p-0" id="products-section">
             <div class="container pt-2">
 
-                <div class="row">
+                <div class="row" data-aos="fade-in" data-aos-duration="1000">
                     <h2 class="fw-bold text-center mb-3">Featured Products</h2>
                     <div class="filter-section d-flex flex-md-row flex-column col-12 col-md-6 mb-3 gap-3" id="filter-section">
                         <div class="d-flex align-items-center">
@@ -294,7 +295,7 @@
         <!-- END Products Section -->
 
         <!-- CONTACT SECTION -->
-
+       
         <!-- END CONTACT SECTION -->
 
     </main>
@@ -302,7 +303,7 @@
 
     <!-- Footer -->
     <footer class="container-fluid container-md text-center text-lg-start">
-        <section class="d-flex justify-content-between align-items-center p-4 border-bottom">
+        <section class="d-flex justify-content-between align-items-center p-4 border-bottom" data-aos="zoom-in" data-aos-duration="1000">
             <div class="d-none d-lg-block">
                 <span>Get connected with us on social networks:</span>
             </div>
@@ -315,7 +316,7 @@
         </section>
 
         <section>
-            <div class="container text-center text-md-start mt-5">
+            <div class="container text-center text-md-start mt-5" data-aos="zoom-in" data-aos-duration="1000">
                 <div class="row align-items-baseline">
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                         <img src="./assets/logo-white.png" alt="Clothes Store Logo" width="150">
@@ -348,5 +349,8 @@
 
     <script src="scripts/main.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>AOS.init({ once: true});</script>
 </body>
 </html>

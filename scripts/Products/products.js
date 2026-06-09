@@ -6,7 +6,7 @@ export function renderProducts(list) {
     container.innerHTML = list.map(item => `
         <div class="card d-inline-block m-1 product-card" data-id="${item.id}">
             <div class="position-relative">
-                <img src="${item.thumbnail}" data-first="${item.thumbnail}" data-second="${item.images[1]}" class="card-img-top position-relative" alt="${item.title}" style="z-index: 2;">
+                <img src="${item.thumbnail}" data-first="${item.thumbnail}" data-second="${item.images[1]}" class="card-img-top position-relative" alt="${item.title}" loading="lazy" style="z-index: 2;">
                 <img src="../assets/background-logo.png" class="position-absolute top-0 start-0" alt="New" style="opacity: 0.04; z-index: 1;">
                 <a class="heart-icon z-3"><i class="bi bi-heart p-md-0 p-2"></i></a>
             </div>

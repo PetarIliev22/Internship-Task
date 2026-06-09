@@ -1,4 +1,4 @@
-import "./API.js";
+import "./api.js";
 import "./BrandInfinityScroll/brandInfinityScroll.js";
 import "./HamburgerBtn/hamburgerAnimation.js";
 import "./Products/selectedProduct.js";
