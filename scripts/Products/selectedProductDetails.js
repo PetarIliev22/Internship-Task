@@ -33,6 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const status = document.getElementById("product-status");
     const thumbnails = document.getElementById("product-thumbnails");
     const specs = document.getElementById("product-specs");
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const closeModal = document.getElementById("closeModal");
 
     if (title) title.innerHTML = product.title;
     if (brand) brand.innerHTML = product.brand;
@@ -57,6 +60,18 @@ document.addEventListener("DOMContentLoaded", () => {
             thumbnails.innerHTML += `
                 <img src="${img}" alt="${product.title}" class="product-thumbnail" data-src="${img}" width="100">
             `;
+        });
+
+
+        image.addEventListener("click", () => {
+            modalImg.src = image.src
+            modal.classList.remove("d-none");
+            document.body.style.overflow = "hidden";
+        })
+
+        closeModal.addEventListener("click", () => {
+            modal.classList.add("d-none");
+            document.body.style.overflow = "auto";
         });
 
         document.querySelectorAll(".product-thumbnail").forEach((thumbnail) => {
