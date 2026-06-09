@@ -5,3 +5,4 @@ import "./Products/selectedProduct.js";
 import "./Products/selectedProductDetails.js";
 import "./Products/filterData.js";
 import "./Products/favoriteList.js";
+import "./FormValidation/formValidation.js";

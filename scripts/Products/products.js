@@ -35,7 +35,6 @@ container.addEventListener('mouseout', (elTarget) => {
     if (target.classList.contains('card-img-top')) {
         const first = target.dataset.first;
         if (first) target.src = first;
-        target.style.animation = 'fadeOut 0.3s ease forwards';
     }
 });
 
