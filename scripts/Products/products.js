@@ -3,23 +3,22 @@ const container = document.querySelector('#product-cards');
 export function renderProducts(list) {
     container.innerHTML = "";
 
-    list.forEach((item) => {
-        container.innerHTML += `
-            <div class="card d-inline-block m-1 product-card" data-id="${item.id}">
-            <img src="../assets/background-logo.png" class="position-absolute top-0 start-0" alt="New" style="opacity: 0.08;">
+    container.innerHTML = list.map(item => `
+        <div class="card d-inline-block m-1 product-card" data-id="${item.id}">
             <div class="position-relative">
-            <img src="${item.images[0]}" data-first="${item.images[0]}" data-second="${item.images[1]}" class="card-img-top" alt="${item.title}">
-            <a class="heart-icon"><i class="bi bi-heart m-1"></i></a>
+                <img src="${item.thumbnail}" data-first="${item.thumbnail}" data-second="${item.images[1]}" class="card-img-top position-relative" alt="${item.title}" style="z-index: 2;">
+                <img src="../assets/background-logo.png" class="position-absolute top-0 start-0" alt="New" style="opacity: 0.04; z-index: 1;">
+                <a class="heart-icon z-3"><i class="bi bi-heart p-md-0 p-2"></i></a>
             </div>
-                <div class="card-body">
-                    <h6 class="card-title text-uppercase text-muted small">${item.brand}</h6>
-                    <p class="card-text">${item.title}</p>
-                    <p class="card-price">${item.price.toFixed(2)} €</p>
-                    <button class="btn btn-dark px-5 w-100">View</button>
-                </div>
+            <div class="card-body">
+                <h6 class="card-title text-uppercase text-muted small">${item.brand}</h6>
+                <p class="card-text">${item.title}</p>
+                <p class="card-price">${item.price.toFixed(2)} €</p>
+                <button class="btn btn-dark px-5 w-100">View</button>
             </div>
-        `;
-    });
+        </div>
+    `).join('');
+
 }
 
 container.addEventListener('mouseover', (elTarget) => {

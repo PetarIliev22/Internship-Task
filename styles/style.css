@@ -382,12 +382,11 @@ body::after{
     object-fit: cover;
     object-position: 50%;
     animation: fadeIn 0.7s ease-in-out;
-    transform: rotateZ(2deg);
     transition: transform 0.3s ease-in-out;
 }
 
 .about-us img:hover{
-    transform: rotateZ(0deg);
+    transform: scale(1.01);
     transition: transform 0.3s ease-in-out;
 }
 
