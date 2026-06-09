@@ -1,4 +1,4 @@
-import { cacheData } from "../API.js";
+import { cacheData } from "../api.js";
 import { renderProducts, restoreFavorites } from "./products.js";
 
 const brandSelect = document.querySelector("#brand-select");
