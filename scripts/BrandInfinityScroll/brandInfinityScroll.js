@@ -5,17 +5,17 @@ const allComp = [track, leftBtn, rightBtn];
 
 if (allComp.every((comp) => comp)) {
     const brands = [
-        { img: "./assets/brands/rolex.png", alt: "Rolex" },
-        { img: "./assets/brands/patek.png", alt: "Patek Philippe" },
-        { img: "./assets/brands/breitling.png", alt: "Breitling" },
-        { img: "./assets/brands/tag-heuer.png", alt: "Tag Heuer" },
-        { img: "./assets/brands/omega.png", alt: "Omega" },
-        { img: "./assets/brands/cartier.png", alt: "Cartier" },
-        { img: "./assets/brands/logines.png", alt: "Logines" },
-        { img: "./assets/brands/iwc.png", alt: "IWC" },
-        { img: "./assets/brands/hublot.png", alt: "Hublot" },
-        { img: "./assets/brands/tissot.png", alt: "Tissot" },
-        { img: "./assets/brands/seiko.png", alt: "Seiko" },
+        { img: "./assets/brands/rolex.webp", alt: "Rolex" },
+        { img: "./assets/brands/patek.webp", alt: "Patek Philippe" },
+        { img: "./assets/brands/breitling.webp", alt: "Breitling" },
+        { img: "./assets/brands/tag-heuer.webp", alt: "Tag Heuer" },
+        { img: "./assets/brands/omega.webp", alt: "Omega" },
+        { img: "./assets/brands/cartier.webp", alt: "Cartier" },
+        { img: "./assets/brands/logines.webp", alt: "Logines" },
+        { img: "./assets/brands/iwc.webp", alt: "IWC" },
+        { img: "./assets/brands/hublot.webp", alt: "Hublot" },
+        { img: "./assets/brands/tissot.webp", alt: "Tissot" },
+        { img: "./assets/brands/seiko.webp", alt: "Seiko" },
     ];
 
     const allBrands = [...brands, ...brands];
