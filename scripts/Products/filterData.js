@@ -56,12 +56,14 @@ function applyFilters() {
 
 async function init() {
     try {
-      
+        
         brandSelect = document.getElementById("brand-select");
         categorySelect = document.getElementById("category-select");
         sortSelect = document.getElementById("sort-select");
 
-        if(!brandSelect || !categorySelect || !sortSelect) return;
+        if (!brandSelect || !categorySelect || !sortSelect){
+            throw new Error("Product filters not found");
+        }
 
         data = (await cacheData()) || [];
         
@@ -73,7 +75,7 @@ async function init() {
         sortSelect.addEventListener("change", applyFilters);
 
     } catch (error) {
-        console.log("Error fetching data:", error);
+        console.log("Init error:", error);
     }
 }
 
