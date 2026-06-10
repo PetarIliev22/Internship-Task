@@ -10,12 +10,12 @@ async function getData() {
 
         const cache = [...mensWatches.products, ...womensWatches.products];
 
-        console.log(cache);
         sessionStorage.setItem("data", JSON.stringify(cache));
 
         return cache
     } catch (error) {
-        console.log(error);
+        console.log("API error:", error);
+        return [];
     }
 }
 

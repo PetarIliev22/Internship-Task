@@ -1,9 +1,9 @@
 import { cacheData } from "../api.js";
 import { renderProducts, restoreFavorites } from "./products.js";
 
-const brandSelect = document.querySelector("#brand-select");
-const categorySelect = document.querySelector("#category-select");
-const sortSelect = document.querySelector("#sort-select");
+let brandSelect;
+let categorySelect;
+let sortSelect;
 
 let data = [];
 function fillFilters() {
@@ -54,15 +54,28 @@ function applyFilters() {
     restoreFavorites();
 }
 
-brandSelect.addEventListener("change", applyFilters);
-categorySelect.addEventListener("change", applyFilters);
-sortSelect.addEventListener("change", applyFilters);
-
 async function init() {
-    data = (await cacheData()) || [];
-    
-    fillFilters();
-    applyFilters();
+    try {
+      
+        brandSelect = document.getElementById("brand-select");
+        categorySelect = document.getElementById("category-select");
+        sortSelect = document.getElementById("sort-select");
+
+        if(!brandSelect || !categorySelect || !sortSelect) return;
+
+        data = (await cacheData()) || [];
+        
+        fillFilters();
+        applyFilters();
+
+        brandSelect.addEventListener("change", applyFilters);
+        categorySelect.addEventListener("change", applyFilters);
+        sortSelect.addEventListener("change", applyFilters);
+
+    } catch (error) {
+        console.log("Error fetching data:", error);
+    }
 }
 
-init();
+
+document.addEventListener("DOMContentLoaded", init);
